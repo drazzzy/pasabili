@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "980324249063",
+    "project_id": "pasabilifirebase",
+    "storage_bucket": "pasabilifirebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980324249063:android:66e85da5a53d03fd122142",
+        "android_client_info": {
+          "package_name": "com.example.pasabili"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980324249063-bec047ark52hktd30q9m6o6sn5q94laj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB7KCAZjErN96qV0n3YndUgXlkVS3UKkt4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "980324249063-bec047ark52hktd30q9m6o6sn5q94laj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
