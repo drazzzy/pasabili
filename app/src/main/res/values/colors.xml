@@ -13,4 +13,14 @@
     <color name="four">#191e28</color>
     <color name="five">#0e7faf</color>
     <color name="pink">#776c67</color>
+    <color name="brown">#5C4D4F</color>
+    <color name="gray">#E6E6E3</color>
+    <color name="yellow">#FDD835</color>
+    <color name="fadegrey">#d9d9d9</color>
+    <color name="blue">#004aad</color>
+    <color name="skyblue">#2196f3</color>
+    <color name="limegreen">#6be579</color>
+    <color name="mint_green">#3EB489</color>
+    <color name="red">#CC1616</color>
+    <color name="bright_pink">#FF007F</color>
 </resources>

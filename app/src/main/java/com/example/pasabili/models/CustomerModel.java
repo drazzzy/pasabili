@@ -1,5 +1,9 @@
 package com.example.pasabili.models;
 
+import android.util.Log;
+
+import com.google.firebase.firestore.DocumentSnapshot;
+
 public class CustomerModel {
 
     private String userId;
@@ -25,6 +29,14 @@ public class CustomerModel {
         setFirstname(firstname);
         setLastname(lastname);
         setAddress(address);
+    }
+
+    public CustomerModel(DocumentSnapshot customer){
+        setEmail(customer.getString("email"));
+        setPassword(customer.getString("password"));
+        setFirstname(customer.getString("firstname"));
+        setLastname(customer.getString("lastname"));
+        setAddress(customer.getString("address"));
     }
 
     public String getUserId() {

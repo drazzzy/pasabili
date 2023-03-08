@@ -15,12 +15,15 @@ import com.example.pasabili.constants.Constants;
 import com.example.pasabili.constants.Messages;
 import com.example.pasabili.models.CustomerModel;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class register extends AppCompatActivity {
 
@@ -28,8 +31,7 @@ public class register extends AppCompatActivity {
     TextView back, login;
     Button registerButton;
     private FirebaseAuth mAuth;
-    FirebaseDatabase db;
-    DatabaseReference ref;
+    FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,11 +100,11 @@ public class register extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         // Sign in success, update UI with the signed-in user's information
-                        FirebaseUser user = mAuth.getCurrentUser();
+                        FirebaseUser user = task.getResult().getUser();
                         customerModel.setUserId(user.getUid());
-                        db = FirebaseDatabase.getInstance(Constants.REALTIME_DATABASE_URL);
-                        ref = db.getReference(Constants.DB_USER);
-                        ref.child(user.getUid()).setValue(customerModel);
+                        db = FirebaseFirestore.getInstance();
+
+                        db.collection(Constants.DB_USER).document(user.getUid()).set(customerModel);
 
                         Intent loginIntent = new Intent(getApplicationContext(), CustomerLogin.class);
                         startActivity(loginIntent);
