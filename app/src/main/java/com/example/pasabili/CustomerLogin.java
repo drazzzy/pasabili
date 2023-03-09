@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import com.example.pasabili.constants.Constants;
 import com.example.pasabili.constants.Messages;
-import com.example.pasabili.models.CustomerModel;
 import com.example.pasabili.pages.customer.customer_navbar;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -25,7 +24,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 public class CustomerLogin extends AppCompatActivity {
     EditText userInput, passInput;
     Button loginBtn;
-    TextView registerLink;
+    TextView registerLink, itenerant;
     FirebaseAuth mAuth;
     FirebaseFirestore db;
 
@@ -40,6 +39,7 @@ public class CustomerLogin extends AppCompatActivity {
         loginBtn = findViewById(R.id.loginBtn);
         registerLink = findViewById(R.id.accCreationLink);
         mAuth = FirebaseAuth.getInstance();
+        itenerant = findViewById(R.id.itenerantRedirect);
 
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +68,15 @@ public class CustomerLogin extends AppCompatActivity {
                 finish();
             }
         });
+
+        itenerant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent itinerantLoginIntent = new Intent(getApplicationContext(), Itinerant_Login.class);
+                startActivity(itinerantLoginIntent);
+                finish();
+            }
+        });
     }
 
     private void signInCustomer(String email, String password){
@@ -79,6 +88,7 @@ public class CustomerLogin extends AppCompatActivity {
                     Toast.makeText(CustomerLogin.this, Messages.AUTHENTICATION_SUCCESSFUL, Toast.LENGTH_SHORT).show();
                     Intent customerHomeIntent = new Intent(getApplicationContext(), customer_navbar.class);
                     customerHomeIntent.putExtra(Constants.USER_UID, task.getResult().getUser().getUid());
+                    customerHomeIntent.putExtra(Constants.USER_TYPE, Constants.USER_TYPES.TRAVELER.toString());
                     startActivity(customerHomeIntent);
                     finish();
                 } else{

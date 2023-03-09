@@ -87,13 +87,14 @@
         app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
 
     <TextView
+        android:id="@+id/itenerantRedirect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="276dp"
         android:layout_marginTop="696dp"
         android:autoLink="all"
         android:linksClickable="true"
-        android:text="Login as a Traveler"
+        android:text="Login as Itenerant"
         android:textColor="@color/pink"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

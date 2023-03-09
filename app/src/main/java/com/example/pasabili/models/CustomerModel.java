@@ -18,6 +18,8 @@ public class CustomerModel {
 
     private String address;
 
+    private Boolean verified;
+
     public CustomerModel(
             String email,
             String password,
@@ -37,6 +39,7 @@ public class CustomerModel {
         setFirstname(customer.getString("firstname"));
         setLastname(customer.getString("lastname"));
         setAddress(customer.getString("address"));
+        setVerified(customer.getBoolean("verified"));
     }
 
     public String getUserId() {
@@ -85,5 +88,13 @@ public class CustomerModel {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Boolean getVerified() {
+        return verified;
+    }
+
+    public void setVerified(Boolean verified) {
+        this.verified = verified;
     }
 }
